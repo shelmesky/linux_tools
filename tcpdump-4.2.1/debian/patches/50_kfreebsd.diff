@@ -1,0 +1,16 @@
+Debian GNU/kFreeBSD porting patch, by Petr Salinger <Petr.Salinger@seznam.cz>.
+---
+ configure    |    1 +
+ configure.in |    1 +
+ 2 files changed, 2 insertions(+)
+
+--- a/configure.in
++++ b/configure.in
+@@ -31,6 +31,7 @@
+ fi
+ AC_CHECK_HEADERS(fcntl.h rpc/rpc.h rpc/rpcent.h netdnet/dnetdb.h)
+ AC_CHECK_HEADERS(net/pfvar.h, , , [#include <sys/types.h>
++#include <net/if_pflog.h>
+ #include <sys/socket.h>
+ #include <net/if.h>])
+ if test "$ac_cv_header_net_pfvar_h" = yes; then

@@ -1,0 +1,5 @@
+> which ping
+/bin/ping
+> dpkg -S /bin/ping
+iputils-ping: /bin/ping
+> apt-get source iputils-ping

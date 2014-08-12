@@ -1,0 +1,31 @@
+Author: Jamie Strandboge <jamie@canonical.com>
+Description: Update man page to make AppArmor confinement more discoverable
+Forwarded: no (Ubuntu-specific)
+
+=== modified file 'tcpdump.1.in'
+--- a/tcpdump.1.in	2012-01-03 15:55:12 +0000
++++ b/tcpdump.1.in	2012-01-03 16:04:21 +0000
+@@ -127,8 +127,11 @@
+ analysis, and/or with the
+ .B \-r
+ flag, which causes it to read from a saved packet file rather than to
+-read packets from a network interface.  In all cases, only packets that
+-match
++read packets from a network interface (please note \fItcpdump\fP is
++protected via an enforcing
++.BR apparmor (7)
++profile in Ubuntu which limits the files \fItcpdump\fP may access).
++In all cases, only packets that match
+ .I expression
+ will be processed by
+ .IR tcpdump .
+@@ -1662,7 +1665,7 @@
+ serviced the `new packet' interrupt.
+ .SH "SEE ALSO"
+ stty(1), pcap(3PCAP), bpf(4), nit(4P), pcap-savefile(@MAN_FILE_FORMATS@),
+-pcap-filter(@MAN_MISC_INFO@), pcap-tstamp-type(@MAN_MISC_INFO@)
++pcap-filter(@MAN_MISC_INFO@), pcap-tstamp-type(@MAN_MISC_INFO@), apparmor(7)
+ .SH AUTHORS
+ The original authors are:
+ .LP
+
